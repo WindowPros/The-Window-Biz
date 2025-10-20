@@ -36,6 +36,36 @@ header {
   background: #205e5d;
 }
 
+/* CONTACT BANNER BELOW HEADER */
+.contact-banner {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.contact-banner h2 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.contact-banner .phone-number {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Make it responsive */
+@media (max-width: 500px) {
+  .contact-banner h2 {
+    font-size: 1.5rem;
+  }
+  .contact-banner .phone-number {
+    font-size: 1.6rem;
+  }
+}
+
+
 /* SECTIONS */
 section {
   padding: 50px 20px;
