@@ -27,7 +27,7 @@ header {
 .cta-button {
   background: var(--primary);
   color: white;
-  padding: 10px 20px;
+  padding: 10px 10px;
   text-decoration: none;
   border-radius: 6px;
 }
@@ -41,7 +41,7 @@ header {
   background: var(--primary);
   color: white;
   text-align: center;
-  padding: 20px 10px;
+  padding: 10px 10px;
   margin-top: 20px; /* <-- added spacing below header */
 }
 
