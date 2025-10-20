@@ -114,3 +114,10 @@ button:hover {
   display: none;
 }
 
+/* FOOTER */
+footer {
+  background: var(--text);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
