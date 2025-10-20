@@ -39,4 +39,4 @@ form.addEventListener('submit', async (e) => {
     message.textContent = 'Something went wrong. Please try again.';
     message.style.color = 'red';
   }
-})
+});
