@@ -1,6 +1,6 @@
 :root {
-  --primary: #2b7a78;
-  --secondary: #def2f1;
+  --primary: #0077b6;
+  --secondary: #90e0ef;
   --text: #17252a;
 }
 
@@ -33,7 +33,7 @@ header {
 }
 
 .cta-button:hover {
-  background: #205e5d;
+  background: #03045e;
 }
 
 /* CONTACT BANNER BELOW HEADER */
@@ -144,7 +144,7 @@ button {
 }
 
 button:hover {
-  background: #205e5d;
+  background: #03045e;
 }
 
 #form-message {
