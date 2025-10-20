@@ -53,11 +53,13 @@ header {
   font-size: 2rem;
   font-weight: bold;
   margin-top: 5px;
+  text-align: center; /* <-- ensure text is centered */
 }
 
 .contact-banner .phone-number a {
   color: white;
   text-decoration: none;
+  display: inline-block; /* <-- ensures it respects text-align */
 }
 
 .contact-banner .phone-number a:hover {
