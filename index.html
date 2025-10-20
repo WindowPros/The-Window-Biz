@@ -47,16 +47,19 @@
   <!-- CONTACT FORM -->
   <section id="contact">
     <h2>Get a Free Quote</h2>
-    <form id="quote-form">
-      <!-- Honeypot field (hidden from users) -->
+    <form id="quote-form" method="POST" action="https://script.google.com/macros/s/AKfycbzAXMGlZ0QdaTYv8CCN6eASPnGSX3kOwN3CiB295JbmcICWCL9voGVVK0JIVp1MtxpejA/exec" target="hidden_iframe">
+      <!-- Secret key for Apps Script -->
+      <input type="hidden" name="key" value="API_Key">
+
+      <!-- Honeypot field -->
       <input type="text" name="bot-field" id="bot-field" autocomplete="off" style="display:none;">
 
       <label>
-        Name* 
+        Name*
         <input type="text" name="name" required>
       </label>
       <label>
-        Phone* 
+        Phone*
         <input type="tel" name="phone" required>
       </label>
       <label>
@@ -77,6 +80,9 @@
   <footer>
     <p>© 2025 Jimmy's Window Cleaning | Rexburg, ID</p>
   </footer>
+
+  <!-- Hidden iframe for form submission -->
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
 
   <!-- SCRIPT -->
   <script src="script.js"></script>
