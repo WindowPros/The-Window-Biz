@@ -41,8 +41,8 @@ header {
   background: var(--primary);
   color: white;
   text-align: center;
-  padding: 10px 10px;
-  margin-top: 20px; /* <-- added spacing below header */
+  padding: 25px 10px; /* 25px top & bottom */
+  margin-top: 20px;
 }
 
 .contact-banner h2 {
