@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jimmy's Window Cleaning</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="hero">
+      <h1>Jimmy's Window Cleaning</h1>
+      <p>Rexburg’s trusted, streak-free professionals ✨</p>
+      <a href="#contact" class="cta-button">Get a Free Quote</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      We offer professional exterior and interior window cleaning services in Rexburg, ID.
+      Fast, reliable, and affordable. Our mission is to brighten your view.
+    </p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="service-gallery">
+      <div class="service-card">
+        <img src="images/exterior-placeholder.jpg" alt="Exterior Cleaning">
+        <h3>Exterior Cleaning</h3>
+      </div>
+      <div class="service-card">
+        <img src="images/interior-placeholder.jpg" alt="Interior Cleaning">
+        <h3>Interior Cleaning</h3>
+      </div>
+      <div class="service-card">
+        <img src="images/gutter-placeholder.jpg" alt="Gutter Cleaning">
+        <h3>Gutter Cleaning</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section id="contact">
+    <h2>Get a Free Quote</h2>
+    <form id="quote-form">
+      <!-- Honeypot field (hidden from users) -->
+      <input type="text" name="bot-field" id="bot-field" autocomplete="off">
+
+      <label>
+        Name*
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        Phone*
+        <input type="tel" name="phone" required>
+      </label>
+      <label>
+        Email
+        <input type="email" name="email">
+      </label>
+      <label>
+        Address (optional)
+        <input type="text" name="address">
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+
+    <p id="form-message"></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Jimmy's Window Cleaning | Rexburg, ID</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
