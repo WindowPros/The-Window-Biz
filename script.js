@@ -1,16 +1,16 @@
 const form = document.getElementById('quote-form');
 const message = document.getElementById('form-message');
 
-// Replace with your own secret key (match this in Apps Script too)
+// Secret key (must match Apps Script)
 const SECRET_KEY = "API_Key";
 
-// Replace this with YOUR Google Apps Script Web App URL
+// Web App URL from Apps Script deployment
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzAXMGlZ0QdaTYv8CCN6eASPnGSX3kOwN3CiB295JbmcICWCL9voGVVK0JIVp1MtxpejA/exec";
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  // 🛡️ Honeypot: stop bots
+  // Honeypot check
   if (form['bot-field'].value !== "") {
     console.log("Bot detected. Ignoring submission.");
     return;
@@ -27,7 +27,6 @@ form.addEventListener('submit', async (e) => {
   try {
     await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
-      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     });
