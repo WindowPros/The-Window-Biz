@@ -202,7 +202,7 @@ footer {
 }
 
 /* ------------------------ */
-/* GALLERY SECTION          */
+/* GALLERY SECTION (4-image layout) */
 /* ------------------------ */
 
 #gallery {
@@ -216,10 +216,10 @@ footer {
   color: var(--text);
 }
 
-/* Responsive photo grid */
+/* Grid fits exactly 4 images */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   max-width: 1000px;
   margin: 0 auto;
@@ -228,7 +228,7 @@ footer {
 /* Image styling */
 .gallery-grid img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
@@ -237,6 +237,19 @@ footer {
 
 /* Hover effect */
 .gallery-grid img:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* Responsive: 2x2 on tablets, 1x4 on phones */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
 }
