@@ -200,3 +200,43 @@ footer {
   margin: 0 auto;
   line-height: 1.6; /* optional: makes text easier to read */
 }
+
+/* ------------------------ */
+/* GALLERY SECTION          */
+/* ------------------------ */
+
+#gallery {
+  background-color: #f8f9fa;
+  padding: 50px 20px;
+}
+
+#gallery h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text);
+}
+
+/* Responsive photo grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Image styling */
+.gallery-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.gallery-grid img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
