@@ -78,7 +78,6 @@ header {
   }
 }
 
-
 /* SECTIONS */
 section {
   padding: 50px 20px;
@@ -97,6 +96,7 @@ h2 {
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  align-items: stretch; /* <-- ensures all cards in a row are same height */
 }
 
 .service-card {
@@ -106,6 +106,9 @@ h2 {
   max-width: 280px;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;              /* make card a flex container */
+  flex-direction: column;     /* stack content vertically */
+  justify-content: space-between; /* optional: space out content inside */
 }
 
 .service-card img {
