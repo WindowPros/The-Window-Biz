@@ -3,111 +3,253 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Window Pros</title>
+  <title>Window Pros - Professional Window Cleaning in Idaho</title>
   <link rel="icon" type="image/png" href="Images/favicon1.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="hero">
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Window Pros</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="calculator.html">Get a Quote</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="card.html">Contact Card</a></li>
+      </ul>
+      <button class="mobile-menu-toggle">☰</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
       <h1>Window Pros</h1>
-      <p>Idaho’s trusted, streak-free professionals</p>
+      <p>Idaho's Trusted, Streak-Free Professionals</p>
       <a href="#contact" class="cta-button">Get a Free Quote</a>
     </div>
   </header>
 
-  <!-- Contact Info -->
+  <!-- CONTACT BANNER -->
   <div class="contact-banner">
-  <h2>Text or Call For a Virtual Quote</h2>
-  <p class="phone-number">
-    <a href="tel:2085551234">(470) 505-3378</a>
-  </p>
+    <h2>Text or Call For a Virtual Quote</h2>
+    <p class="phone-number">
+      <a href="tel:4705053378">(470) 505-3378</a>
+    </p>
   </div>
 
-  <!-- ABOUT -->
+  <!-- ABOUT SECTION -->
   <section id="about">
-    <h2>About Us</h2>
-    <p>
-      Founded by a college student, our company has spent the past two years transforming homes and businesses with sparkling windows and clean gutters. What makes us special is our team — a group of hardworking, driven students who bring energy, dedication, and pride to every job. We’re committed not just to great results, but to providing an excelent client experience. 
-    </p>
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <h2>About Window Pros</h2>
+          <p>
+            Founded by a college student with a vision for excellence, Window Pros has spent the past two years transforming homes and businesses across Idaho with sparkling windows and spotless gutters.
+          </p>
+          <p>
+            What sets us apart is our team of hardworking, driven students who bring energy, dedication, and genuine pride to every job. We're not just here to clean windows—we're committed to delivering an exceptional client experience from start to finish.
+          </p>
+          <div class="stats-grid">
+            <div class="stat-box">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Happy Customers</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">2</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Satisfaction Rate</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="Images/bighouse.jpg" alt="Professional window cleaning service">
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- SERVICES -->
   <section id="services">
-  <h2>Our Services</h2>
-  <div class="service-gallery">
-    <div class="service-card">
-      <h3>Window Cleaning</h3>
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🪟</div>
+          <h3>Window Cleaning</h3>
+          <p>Crystal-clear windows inside and out. We remove dirt, grime, and streaks for a perfect finish every time.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>Gutter Cleaning</h3>
+          <p>Keep your home protected with thoroughly cleaned gutters and downspouts. We remove all debris and ensure proper water flow.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💧</div>
+          <h3>Pressure Washing</h3>
+          <p>Revitalize your property's exterior with professional pressure washing for driveways, patios, and siding.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔧</div>
+          <h3>Screen Repair</h3>
+          <p>Torn or damaged screens? We'll repair or replace them to keep your home looking its best.</p>
+        </div>
+      </div>
     </div>
-    <div class="service-card">
-      <h3>Gutter Cleaning</h3>
-    </div>
-    <div class="service-card">
-      <h3>Pressure Washing</h3>
-    </div>
-    <div class="service-card">
-      <h3>Screen Repair</h3>
-    </div>
-  </div>
-</section>
+  </section>
 
-<h2>Gallery</h2>
-<!-- GALLERY -->
+  <!-- WHY CHOOSE US -->
+  <section id="why-choose">
+    <div class="container">
+      <h2 class="section-title">Why Choose Window Pros?</h2>
+      <div class="features-grid">
+        <div class="feature-box">
+          <div class="feature-icon">✓</div>
+          <h3>Professional Quality</h3>
+          <p>Every job completed to the highest standards with attention to detail</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">💰</div>
+          <h3>Fair Pricing</h3>
+          <p>Competitive rates with transparent quotes—no hidden fees</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">⚡</div>
+          <h3>Quick Service</h3>
+          <p>Efficient work that respects your time and schedule</p>
+        </div>
+        <!-- UNCOMMENT WHEN YOU GET INSURANCE -->
+        <!-- <div class="feature-box">
+          <div class="feature-icon">🛡️</div>
+          <h3>Fully Insured</h3>
+          <p>Your property is protected with our comprehensive coverage</p>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
   <section id="gallery">
-    
-    <div class="gallery-grid">
-      <img src="Images/bighouse.jpg" alt="Window cleaning result">
-      <img src="Images/optimalship1.jpg" alt="Clean business windows">
-      <img src="Images/smallhouse.jpg" alt="Small house example">
-      <img src="Images/commercial.jpg" alt="Sparkling windows">
-      <img src="Images/patio.jpg" alt="Front Patio">
-      <img src="Images/backporch.jpg" alt="Back Porch">
-      <!-- Add more images here as you like -->
+    <div class="container">
+      <h2 class="section-title">Our Work</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="Images/patio.jpg" alt="Patio area cleaning">
+        </div>
+        <div class="gallery-item">
+          <img src="Images/optimalship1.jpg" alt="Commercial window cleaning">
+        </div>
+        <div class="gallery-item">
+          <img src="Images/smallhouse.jpg" alt="Small home window service">
+        </div>
+        <div class="gallery-item">
+          <img src="Images/commercial.jpg" alt="Business windows">
+        </div>
+        <div class="gallery-item">
+          <img src="Images/bighouse.jpg" alt="Large residential window cleaning">
+        </div>
+        <div class="gallery-item">
+          <img src="Images/backporch.jpg" alt="Back porch service">
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- CONTACT FORM -->
   <section id="contact">
-    <h2>Get a Free Quote</h2>
-    <form id="quote-form" method="POST" action="https://script.google.com/macros/s/AKfycbzAXMGlZ0QdaTYv8CCN6eASPnGSX3kOwN3CiB295JbmcICWCL9voGVVK0JIVp1MtxpejA/exec" target="hidden_iframe">
-      <!-- Secret key for Apps Script -->
-      <input type="hidden" name="key" value="API_Key">
+    <div class="container">
+      <h2 class="section-title">Get Your Free Quote</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Ready to experience the difference?</h3>
+          <p>Fill out the form and we'll get back to you within 24 hours with a free, no-obligation quote. Or give us a call for immediate assistance!</p>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-item-icon">📞</div>
+              <div class="contact-item-text">
+                <strong>Phone</strong>
+                <a href="tel:4705053378">(470) 505-3378</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div class="contact-item-text">
+                <strong>Service Area</strong>
+                Rexburg & Surrounding Areas
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">⏰</div>
+              <div class="contact-item-text">
+                <strong>Hours</strong>
+                Mon-Sat: 8am - 6pm
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <!-- Honeypot field -->
-      <input type="text" name="bot-field" id="bot-field" autocomplete="off" style="display:none;">
+        <form id="quote-form" method="POST" action="https://script.google.com/macros/s/AKfycbzAXMGlZ0QdaTYv8CCN6eASPnGSX3kOwN3CiB295JbmcICWCL9voGVVK0JIVp1MtxpejA/exec" target="hidden_iframe">
+          <input type="hidden" name="key" value="API_Key">
+          <input type="text" name="bot-field" id="bot-field" autocomplete="off">
 
-      <label>
-        Name*
-        <input type="text" name="name" required>
-      </label>
-      <label>
-        Phone*
-        <input type="tel" name="phone" required>
-      </label>
-      <label>
-        Email
-        <input type="email" name="email">
-      </label>
-      <label>
-        Address (optional)
-        <input type="text" name="address">
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+          <label for="name">Name*</label>
+          <input type="text" id="name" name="name" required>
 
-    <p id="form-message"></p>
+          <label for="phone">Phone*</label>
+          <input type="tel" id="phone" name="phone" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email">
+
+          <label for="address">Address (optional)</label>
+          <input type="text" id="address" name="address">
+
+          <button type="submit">Get My Free Quote</button>
+          <p id="form-message"></p>
+        </form>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 Window Pros | Rexburg, ID</p>
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>Window Pros</h3>
+        <p>Idaho's trusted window cleaning professionals, serving the community with excellence since 2023.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="calculator.html">Get a Quote</a>
+        <a href="about.html">About Us</a>
+        <a href="card.html">Contact Card</a>
+      </div>
+      <div class="footer-section">
+        <h3>Services</h3>
+        <a href="#services">Window Cleaning</a>
+        <a href="#services">Gutter Cleaning</a>
+        <a href="#services">Pressure Washing</a>
+        <a href="#services">Screen Repair</a>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>📞 (470) 505-3378</p>
+        <p>📍 Rexburg, Idaho</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Window Pros | All Rights Reserved</p>
+    </div>
   </footer>
 
-  <!-- Hidden iframe for form submission -->
   <iframe name="hidden_iframe" style="display:none;"></iframe>
 
-  <!-- SCRIPT -->
   <script src="script.js"></script>
 </body>
 </html>

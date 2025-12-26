@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Window Pros</title>
+  <link rel="icon" type="image/png" href="Images/favicon1.png" />
+  <link rel="stylesheet" href="oldstyle.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="hero">
+      <h1>Window Pros</h1>
+      <p>Idaho’s trusted, streak-free professionals</p>
+      <a href="#contact" class="cta-button">Get a Free Quote</a>
+    </div>
+  </header>
+
+  <!-- Contact Info -->
+  <div class="contact-banner">
+  <h2>Text or Call For a Virtual Quote</h2>
+  <p class="phone-number">
+    <a href="tel:2085551234">(470) 505-3378</a>
+  </p>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      Founded by a college student, our company has spent the past two years transforming homes and businesses with sparkling windows and clean gutters. What makes us special is our team — a group of hardworking, driven students who bring energy, dedication, and pride to every job. We’re committed not just to great results, but to providing an excelent client experience. 
+    </p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+  <h2>Our Services</h2>
+  <div class="service-gallery">
+    <div class="service-card">
+      <h3>Window Cleaning</h3>
+    </div>
+    <div class="service-card">
+      <h3>Gutter Cleaning</h3>
+    </div>
+    <div class="service-card">
+      <h3>Pressure Washing</h3>
+    </div>
+    <div class="service-card">
+      <h3>Screen Repair</h3>
+    </div>
+  </div>
+</section>
+
+<h2>Gallery</h2>
+<!-- GALLERY -->
+  <section id="gallery">
+    
+    <div class="gallery-grid">
+      <img src="Images/bighouse.jpg" alt="Window cleaning result">
+      <img src="Images/optimalship1.jpg" alt="Clean business windows">
+      <img src="Images/smallhouse.jpg" alt="Small house example">
+      <img src="Images/commercial.jpg" alt="Sparkling windows">
+      <img src="Images/patio.jpg" alt="Front Patio">
+      <img src="Images/backporch.jpg" alt="Back Porch">
+      <!-- Add more images here as you like -->
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section id="contact">
+    <h2>Get a Free Quote</h2>
+    <form id="quote-form" method="POST" action="https://script.google.com/macros/s/AKfycbzAXMGlZ0QdaTYv8CCN6eASPnGSX3kOwN3CiB295JbmcICWCL9voGVVK0JIVp1MtxpejA/exec" target="hidden_iframe">
+      <!-- Secret key for Apps Script -->
+      <input type="hidden" name="key" value="API_Key">
+
+      <!-- Honeypot field -->
+      <input type="text" name="bot-field" id="bot-field" autocomplete="off" style="display:none;">
+
+      <label>
+        Name*
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        Phone*
+        <input type="tel" name="phone" required>
+      </label>
+      <label>
+        Email
+        <input type="email" name="email">
+      </label>
+      <label>
+        Address (optional)
+        <input type="text" name="address">
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+
+    <p id="form-message"></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Window Pros | Rexburg, ID</p>
+  </footer>
+
+  <!-- Hidden iframe for form submission -->
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+</body>
+</html>

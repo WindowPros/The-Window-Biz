@@ -7,7 +7,7 @@ const iframe = document.getElementsByName('hidden_iframe')[0];
 iframe.onload = function() {
   // Only show message if form has been submitted
   if (form.dataset.submitted === "true") {
-    message.textContent = "✅ Thanks! Your request has been received.";
+    message.textContent = "Thanks! Your request has been received.";
     message.style.color = "green";
     form.reset();
     form.dataset.submitted = "false";

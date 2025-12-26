@@ -1,0 +1,251 @@
+:root {
+  --primary: #0077b6;
+  --secondary: #90e0ef;
+  --text: #17252a;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background-color: #fff;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Images/droplets.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.cta-button {
+  background: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.cta-button:hover {
+  background: #03045e;
+}
+
+/* CONTACT BANNER BELOW HEADER */
+.contact-banner {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 30px 10px; /* top & bottom equal */
+  margin-top: 20px;
+}
+
+.contact-banner h2 {
+  font-size: 1.8rem;
+  margin: 0;            /* remove default top & bottom margins */
+  margin-bottom: 10px;  /* controlled space below */
+}
+
+.contact-banner .phone-number {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;            /* remove default margin from p */
+  text-align: center;
+}
+
+.contact-banner .phone-number a {
+  color: white;
+  text-decoration: none;
+  display: inline-block; /* <-- ensures it respects text-align */
+}
+
+.contact-banner .phone-number a:hover {
+  text-decoration: underline;
+}
+
+/* Make it responsive */
+@media (max-width: 500px) {
+  .contact-banner h2 {
+    font-size: 1.5rem;
+  }
+  .contact-banner .phone-number {
+    font-size: 1.6rem;
+  }
+}
+
+/* SECTIONS */
+section {
+  padding: 50px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* SERVICES */
+.service-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch; /* <-- ensures all cards in a row are same height */
+}
+
+.service-card {
+  background: var(--secondary);
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 280px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;              /* make card a flex container */
+  flex-direction: column;     /* stack content vertically */
+  justify-content: space-between; /* optional: space out content inside */
+}
+
+.service-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: auto;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  padding: 10px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #03045e;
+}
+
+#form-message {
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* HONEYPOT HIDDEN */
+#bot-field {
+  display: none;
+}
+
+/* FOOTER */
+footer {
+  background: var(--text);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ------------------------ */
+/* RESPONSIVE IMPROVEMENTS  */
+/* ------------------------ */
+
+/* Make hero text responsive */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Service cards stacked on mobile */
+@media (max-width: 700px) {
+  .service-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Form inputs full width on small screens */
+@media (max-width: 500px) {
+  form {
+    width: 90%;
+  }
+}
+
+#about {
+  text-align: center;
+}
+
+#about p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6; /* optional: makes text easier to read */
+}
+
+/* ------------------------ */
+/* GALLERY SECTION — 2x2 GRID */
+/* ------------------------ */
+
+#gallery {
+  background-color: #f8f9fa;
+  padding: 50px 20px;
+}
+
+#gallery h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 images per row */
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Each image fills its grid cell evenly */
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for subtle polish */
+.gallery-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* On smaller screens, switch to one per row */
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
