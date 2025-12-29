@@ -1,0 +1,96 @@
+:root {
+    --navy: #001f3f;
+    --grey: #d6d6d6;
+    --cream: #334F73;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 520px;
+    margin: 20px auto;
+    padding: 14px;
+    background-color: var(--cream);
+    color: var(--navy);
+}
+
+/* Main title */
+h1 {
+    text-align: center;
+    color: var(--grey);
+    margin-bottom: 10px;
+}
+
+/* Section headings */
+h2 {
+    text-align: center;
+    color: var(--navy);
+    margin-bottom: 10px;
+}
+
+/* Card container */
+form {
+    background-color: var(--grey);
+    padding: 18px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 4px 10px rgba(0, 31, 63, 0.15);
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* Inputs */
+input {
+    font-size: 16px; /* prevents mobile zoom */
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid var(--navy);
+    background-color: #fff;
+    color: var(--navy);
+}
+
+input:focus {
+    outline: none;
+    background-color: var(--grey);
+}
+
+/* Button */
+button {
+    margin-top: 14px;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--navy);
+    color: var(--grey);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Results */
+#results {
+    margin-top: 22px;
+    background-color: var(--grey);
+    padding: 16px;
+    border-radius: 12px;
+    border-left: 5px solid var(--navy);
+    font-size: 16px;
+}
+
+/* Result emphasis */
+#results strong {
+    font-size: 18px;
+}
