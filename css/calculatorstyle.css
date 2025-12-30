@@ -65,6 +65,8 @@
 .input-prefix {
   position: absolute;
   left: 15px;
+  top: 50%;                      /*added this code*/
+  transform: translateY(-50%);   /*added this code*/
   color: var(--text-light);
   font-weight: 600;
   font-size: 1.1rem;
