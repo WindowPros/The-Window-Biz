@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quote Calculator - Window Pros</title>
+  <link rel="icon" type="image/png" href="Images/favicon1.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="calculator-style.css" />
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Window Pros</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="calculator.html">Get a Quote</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="card.html">Contact Card</a></li>
+      </ul>
+      <button class="mobile-menu-toggle">☰</button>
+    </div>
+  </nav>
+
+  <!-- CALCULATOR SECTION -->
+  <section id="calculator-section">
+    <div class="container">
+      <div class="calculator-header">
+        <h1 class="section-title">Window Cleaning Quote Calculator</h1>
+        <p class="calculator-subtitle">Get an instant estimate for your window cleaning project</p>
+      </div>
+
+      <div class="calculator-grid">
+        <!-- Calculator Form -->
+        <div class="calculator-card">
+          <form id="calculator-form" onsubmit="event.preventDefault(); calculateBid();">
+            
+            <div class="form-section">
+              <h2 class="form-section-title">Pricing</h2>
+              
+              <div class="form-group">
+                <label for="standard_price">Standard Price Per Side</label>
+                <div class="input-wrapper">
+                  <span class="input-prefix">$</span>
+                  <input type="number" id="standard_price" inputmode="numeric" step="1" placeholder="3">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="hazard_price">Price Per Hazard Window</label>
+                <div class="input-wrapper">
+                  <span class="input-prefix">$</span>
+                  <input type="number" id="hazard_price" inputmode="numeric" step="1" placeholder="5">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="screen_price">Price Per Screen</label>
+                <div class="input-wrapper">
+                  <span class="input-prefix">$</span>
+                  <input type="number" id="screen_price" inputmode="numeric" step="1" placeholder="2">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="form-section-title">Job Details</h2>
+              
+              <div class="form-group">
+                <label for="total_windows">Total Windows</label>
+                <input type="number" id="total_windows" inputmode="numeric" step="1" placeholder="20">
+              </div>
+
+              <div class="form-group">
+                <label for="total_hazard_windows">Total Hazard Windows</label>
+                <input type="number" id="total_hazard_windows" inputmode="numeric" step="1" placeholder="0">
+              </div>
+            </div>
+
+            <button type="submit" class="calculate-btn">Calculate Quote</button>
+          </form>
+        </div>
+
+        <!-- Results Display -->
+        <div class="results-card">
+          <div id="results">
+            <div class="results-placeholder">
+              <div class="placeholder-icon">💰</div>
+              <h3>Your Quote Will Appear Here</h3>
+              <p>Fill out the form and click "Calculate Quote" to see your estimated pricing breakdown.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Cards -->
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="info-icon">📝</div>
+          <h3>Easy Estimation</h3>
+          <p>Get instant quotes for residential and commercial window cleaning projects</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💵</div>
+          <h3>Transparent Pricing</h3>
+          <p>See exactly how your quote is calculated with our detailed breakdown</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">⚡</div>
+          <h3>Quick & Accurate</h3>
+          <p>Save time with our automated calculator that remembers your pricing preferences</p>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="calculator-cta">
+        <h2>Ready to Book Your Service?</h2>
+        <p>Contact us today for a detailed in-person quote or to schedule your window cleaning</p>
+        <div class="cta-buttons">
+          <a href="tel:4705053378" class="cta-button">Call (470) 505-3378</a>
+          <a href="index.html#contact" class="cta-button-secondary">Request Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>Window Pros</h3>
+        <p>Idaho's trusted window cleaning professionals, serving the community with excellence since 2023.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="calculator.html">Get a Quote</a>
+        <a href="about.html">About Us</a>
+        <a href="card.html">Contact Card</a>
+      </div>
+      <div class="footer-section">
+        <h3>Services</h3>
+        <a href="index.html#services">Window Cleaning</a>
+        <a href="index.html#services">Gutter Cleaning</a>
+        <a href="index.html#services">Pressure Washing</a>
+        <a href="index.html#services">Screen Repair</a>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>📞 (470) 505-3378</p>
+        <p>📍 Rexburg, Idaho</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Window Pros | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="calculator.js"></script>
+</body>
+</html>
