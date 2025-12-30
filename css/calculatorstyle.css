@@ -84,6 +84,7 @@
   border-radius: 8px;
   font-family: inherit;
   font-size: 1rem;
+  line-height: normal;          /* added this code */
   transition: border-color 0.3s;
 }
 
