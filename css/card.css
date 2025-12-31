@@ -1,0 +1,299 @@
+/* BUSINESS CARD PAGE STYLES */
+
+.card-body {
+  background: linear-gradient(135deg, var(--bg-light) 0%, var(--secondary) 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-nav {
+  background: transparent;
+  box-shadow: none;
+  position: relative;
+}
+
+.card-nav .logo {
+  color: var(--primary);
+}
+
+.card-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.business-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 100%;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.business-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+}
+
+/* Logo */
+.card-logo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.card-logo img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+/* Profile Section */
+.card-profile {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--bg-light);
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+  border: 4px solid var(--primary);
+  box-shadow: var(--shadow);
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-name {
+  font-size: 2rem;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.card-company {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+/* Contact Information */
+.card-contact {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-light);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.contact-link.phone,
+.contact-link.email {
+  cursor: pointer;
+}
+
+.contact-link.phone:hover,
+.contact-link.email:hover {
+  background: var(--primary);
+  color: var(--white);
+  transform: translateX(5px);
+}
+
+.contact-link.location {
+  cursor: default;
+}
+
+.contact-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+/* Services */
+.card-services {
+  margin-bottom: 2rem;
+}
+
+.card-services h3 {
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.services-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.service-tag {
+  background: var(--secondary);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Gallery */
+.card-gallery {
+  margin-bottom: 2rem;
+}
+
+.card-gallery h3 {
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.gallery-mini {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.mini-image {
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: var(--shadow);
+}
+
+.mini-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.mini-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Action Buttons */
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.action-button {
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.action-button.primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.action-button.primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.action-button.secondary {
+  background: var(--white);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.action-button.secondary:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* Footer */
+.card-footer {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--bg-light);
+}
+
+.website-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.website-link:hover {
+  color: var(--primary-dark);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .business-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .card-name {
+    font-size: 1.75rem;
+  }
+
+  .card-logo img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .action-button {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .card-actions {
+    grid-template-columns: 1fr;
+  }
+}
