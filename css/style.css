@@ -527,8 +527,37 @@ footer {
   }
 }
 
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .about-grid, .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-item:nth-child(1) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   /* Mobile Navigation */
+  .nav-container {
+    padding: 1rem 1rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
+
   .nav-links {
     display: none;
     position: absolute;
@@ -593,6 +622,12 @@ footer {
   .phone-number {
     font-size: 1.5rem;
   }
+
+  /* Footer */
+  .footer-bottom {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
 }
 
 @media (max-width: 500px) {
@@ -602,5 +637,15 @@ footer {
   
   .phone-number {
     font-size: 1.3rem;
+  }
+
+  /* Smaller logo on very small screens */
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  /* Even smaller footer text if needed */
+  .footer-bottom {
+    font-size: 0.8rem;
   }
 }
