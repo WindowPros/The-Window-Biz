@@ -58,3 +58,102 @@ function calculateBid() {
         <p><strong>Total Plus Screens:</strong> <span>$${totalPlusScreensRounded}</span></p>
     `;
 }
+
+const jobDropdown = document.querySelector("#jobs")
+
+jobDropdown.addEventListener("change", (e) => {
+    const selectedJob = e.target.value;
+    const form = document.querySelector("#calculator-form");
+
+    if (selectedJob === "window") {
+        form.innerHTML = `
+        <div class="form-section">
+            <h2 class="form-section-title">Pricing</h2>
+            
+            <div class="form-group">
+            <label for="standard_price">Standard Price Per Side (~$7)</label>
+            <div class="input-wrapper">
+                <span class="input-prefix"></span>
+                <input type="number" id="standard_price" inputmode="numeric" step="1" placeholder="e.g. 7">
+            </div>
+            </div>
+
+            <div class="form-group"> 
+            <label for="hazard_price">Price Per Hazard Window (~$5)</label>
+            <div class="input-wrapper">
+                <span class="input-prefix"></span>
+                <input type="number" id="hazard_price" inputmode="numeric" step="1" placeholder="e.g. 5">
+            </div>
+            </div>
+
+            <div class="form-group">
+            <label for="screen_price">Price Per Screen (~$1)</label>
+            <div class="input-wrapper">
+                <span class="input-prefix"></span>
+                <input type="number" id="screen_price" inputmode="numeric" step="1" placeholder="e.g. 1">
+            </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2 class="form-section-title">Job Details</h2>
+            
+            <div class="form-group">
+            <label for="total_windows">Total Windows</label>
+            <input type="number" id="total_windows" inputmode="numeric" step="1" placeholder="e.g. 0">
+            </div>
+
+            <div class="form-group">
+            <label for="total_hazard_windows">Total Hazard Windows (paint, cement, roof access, etc.)</label>
+            <input type="number" id="total_hazard_windows" inputmode="numeric" step="1" placeholder="e.g. 0">
+            </div>
+        </div>
+
+        <button type="submit" class="calculate-btn">Calculate Quote</button>`
+    }
+    else if (selectedJob === "gutter") {
+        form.innerHTML = `
+        <div class="form-section">
+            <h2 class="form-section-title">Pricing</h2>
+            
+            <div class="form-group">
+            <label for="standard_price">Standard Price Per Foot (~$7)</label>
+            <div class="input-wrapper">
+                <span class="input-prefix"></span>
+                <input type="number" id="standard_price" inputmode="numeric" step="1" placeholder="e.g. 7">
+            </div>
+            </div>
+        </div>
+        <button type="submit" class="calculate-btn">Calculate Quote</button>`;
+    }
+    else if (selectedJob === "pressure") {
+        form.innerHTML = `
+        <div class="form-section">
+            <h2 class="form-section-title">Pricing</h2>
+            
+            <div class="form-group">
+            <label for="standard_price">Standard Price Per sqft (~$7)</label>
+            <div class="input-wrapper">
+                <span class="input-prefix"></span>
+                <input type="number" id="standard_price" inputmode="numeric" step="1" placeholder="e.g. 7">
+            </div>
+            </div>
+        </div>
+        <button type="submit" class="calculate-btn">Calculate Quote</button>`;
+    }
+    else if (selectedJob === "screen") {
+        form.innerHTML = `
+        <div class="form-section">
+            <h2 class="form-section-title">Pricing</h2>
+            
+            <div class="form-group">
+            <label for="standard_price">Standard Price Per Screen (~$7)</label>
+            <div class="input-wrapper">
+                <span class="input-prefix"></span>
+                <input type="number" id="standard_price" inputmode="numeric" step="1" placeholder="e.g. 7">
+            </div>
+            </div>
+        </div>
+        <button type="submit" class="calculate-btn">Calculate Quote</button>`;
+    }
+})
