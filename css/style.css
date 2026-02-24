@@ -30,7 +30,7 @@ nav {
   box-shadow: var(--shadow);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1001;
 }
 
 .nav-container {
@@ -641,6 +641,10 @@ footer {
   .contact-banner h2 {
     font-size: 1.2rem;
   }
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
   
   .phone-number {
     font-size: 1.3rem;
