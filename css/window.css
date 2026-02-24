@@ -1,0 +1,28 @@
+:root {
+  --primary: #0077b6;
+  --primary-dark: #03045e;
+  --secondary: #90e0ef;
+  --accent: #00b4d8;
+  --text: #17252a;
+  --text-light: #5a6c75;
+  --bg-light: #f8f9fa;
+  --white: #ffffff;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.serviceTitle {
+    display: flex;
+    height: 20rem;
+}
+.serviceTitle h1 {
+    width: fit-content;
+    margin: auto;
+}
+.contact-banner a {
+    color: white;
+    text-decoration: underline;
+}
+.contact-banner a:hover {
+    color: #0096e1;
+}

@@ -31,54 +31,36 @@
         <p class="calculator-subtitle">Get an instant estimate for your window cleaning project</p>
       </div>
 
+      <div class="jobDropdown">
+        <div class="view">
+          <p>Select a job:</p>
+          <button id="carrot">v</button>
+        </div>
+        <div id="jobs">
+          <div class="jobInput">
+            <input value="window" id="window" type="checkbox"></input>
+            <label for="window">Window cleaning</label>
+          </div>
+          <div class="jobInput">
+            <input value="gutter" id="gutter" type="checkbox"></input>
+            <label for="gutter">Gutter cleaning</label>
+          </div>
+          <div class="jobInput">
+            <input value="pressure" id="pressure" type="checkbox"></input>
+            <label for="pressure">Pressure washing</label>
+          </div>
+          <div class="jobInput">
+            <input value="screen" id="screen" type="checkbox"></input>
+            <label for="screen">Screen repair</label>
+          </div>
+        </div>
+      </div>
+
       <div class="calculator-grid">
         <!-- Calculator Form -->
         <div class="calculator-card">
           <form id="calculator-form" onsubmit="event.preventDefault(); calculateBid();">
-            
-            <div class="form-section">
-              <h2 class="form-section-title">Pricing</h2>
-              
-              <div class="form-group">
-                <label for="standard_price">Standard Price Per Side (~$7)</label>
-                <div class="input-wrapper">
-                  <span class="input-prefix"></span>
-                  <input type="number" id="standard_price" inputmode="numeric" step="1" placeholder="7">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="hazard_price">Price Per Hazard Window (~$5)</label>
-                <div class="input-wrapper">
-                  <span class="input-prefix"></span>
-                  <input type="number" id="hazard_price" inputmode="numeric" step="1" placeholder="5">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="screen_price">Price Per Screen (~$1)</label>
-                <div class="input-wrapper">
-                  <span class="input-prefix"></span>
-                  <input type="number" id="screen_price" inputmode="numeric" step="1" placeholder="1">
-                </div>
-              </div>
-            </div>
-
-            <div class="form-section">
-              <h2 class="form-section-title">Job Details</h2>
-              
-              <div class="form-group">
-                <label for="total_windows">Total Windows</label>
-                <input type="number" id="total_windows" inputmode="numeric" step="1" placeholder="0">
-              </div>
-
-              <div class="form-group">
-                <label for="total_hazard_windows">Total Hazard Windows (paint, cement, roof access, etc.)</label>
-                <input type="number" id="total_hazard_windows" inputmode="numeric" step="1" placeholder="0">
-              </div>
-            </div>
-
-            <button type="submit" class="calculate-btn">Calculate Quote</button>
+            <p>Select a job from the section above to start your estimate</p>
           </form>
         </div>
 
@@ -86,8 +68,6 @@
         <div class="results-card">
           <div id="results">
             <div class="results-placeholder">
-              <div class="placeholder-icon">💰</div>
-              <h3>Your Quote Will Appear Here</h3>
               <p>Fill out the form and click "Calculate Quote" to see your estimated pricing breakdown.</p>
             </div>
           </div>
