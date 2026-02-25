@@ -34,10 +34,6 @@
 #jobLabel {
   margin: 0;
 }
-#options {
-  margin: 0;
-  transform: translateY(2px);
-}
 .jobDropdown {
   position: relative;
   width: 200px;
@@ -79,10 +75,10 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  transition: background-color .3s ease;
+  transition: background-color .3s ease, transform .2s ease;
 }
-#carrot:hover {
-  background-color: #f5f5f5;
+#carrot.active {
+  transform: rotate(180deg);
 }
 input {
   margin: 0;
@@ -181,12 +177,6 @@ label {
   font-weight: 600;
   transition: all 0.3s;
   margin-top: 1rem;
-}
-
-.calculate-btn:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
 }
 
 #calculator-form p {
@@ -341,12 +331,23 @@ label {
   border: 2px solid var(--primary);
 }
 
-.cta-button-secondary:hover {
-  background: var(--primary);
-  color: var(--white);
-}
-
 /* Responsive Design */
+@media (min-width: 768px) {
+  .calculate-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  .cta-button-secondary:hover {
+    background: var(--primary);
+    color: var(--white);
+  }
+}
+@media (min-width: 768px) {
+  #carrot:hover {
+    background-color: #f5f5f5;
+  }
+}
 @media (max-width: 1024px) {
   .calculator-grid {
     grid-template-columns: 1fr;

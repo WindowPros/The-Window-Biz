@@ -2,6 +2,7 @@ const carrot = document.querySelector("#carrot");
 const checkboxes = document.querySelector("#jobs");
 carrot.addEventListener("click", () => {
     checkboxes.classList.toggle("active");
+    carrot.classList.toggle("active");
 })
 
 let pricesInput = {
@@ -55,7 +56,7 @@ const jobInnerHtml = {
     screen: () => `
         <div class="form-section">
             <div class="form-group">
-            <label for="total_screens">Total Number of Screens (~$1 per screen)</label>
+            <label for="total_screens">Total Number of Screens (~$3 per screen)</label>
             <div class="input-wrapper">
             <span class="input-prefix"></span>
             <input type="number" id="total_screens" inputmode="numeric" step="1" placeholder="e.g. 10" value="${pricesInput.screen || ""}">
@@ -107,7 +108,7 @@ function calculateBid() {
     // Get pricing inputs
     const standardPrice = 5;
     const hazardPrice = 7;
-    const screenPrice = 1;
+    const screenPrice = 3;
     const pressurePrice = .50;
     const gutterPrice = 1;
 

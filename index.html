@@ -6,6 +6,7 @@
   <title>The Window Biz - Professional Window Cleaning in Texas</title>
   <link rel="icon" type="image/png" href="Images/favicon1.png" />
   <link rel="stylesheet" href="css/style.css" />
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/> -->
 </head>
 <body>
   <!-- NAVIGATION -->
@@ -16,6 +17,20 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="calculator.html">Quote Calculator</a></li>
         <li><a href="about.html">About Us</a></li>
+        <li id="serviceTab">
+            <div class="services">
+                <p id="servicesText">Our Services</p>
+                <img src="Images/caret-down-fill.svg" alt="down caret">
+                <div class="ourServices">
+                <ul>
+                    <li><a href="windowCleaning.html">Window Cleaning</a></li>
+                    <li><a href="gutter.html">Gutter Cleaning</a></li>
+                    <li><a href="pressure.html">Pressure Washing</a></li>
+                    <li><a href="screen.html">Screen Repair</a></li>
+                </ul>
+                </div>
+            </div>
+          </li>   
         <li><a href="card.html">Contact Card</a></li>
       </ul>
       <button class="mobile-menu-toggle">☰</button>
@@ -165,6 +180,19 @@
         </div>
       </div>
     </div>
+
+    <!-- Mobile swipe -->
+    <!-- <div class="swiper-mobile-only">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="Images/patio.jpg" alt="Patio area cleaning"></div>
+        <div class="swiper-slide"><img src="Images/optimalship1.jpg" alt="Commercial window cleaning"></div>
+        <div class="swiper-slide"><img src="Images/smallhouse.jpg" alt="Small home window service"></div>
+        <div class="swiper-slide"><img src="Images/commercial.jpg" alt="Business windows"></div>
+        <div class="swiper-slide"><img src="Images/bighouse.jpg" alt="Large residential window cleaning"></div>
+        <div class="swiper-slide"><img src="Images/backporch.jpg" alt="Back porch service"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div> -->
   </section>
 
   <!-- CONTACT FORM -->
@@ -259,5 +287,15 @@
   <iframe name="hidden_iframe" style="display:none;"></iframe>
 
   <script src="java/scriptmain.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    new Swiper('.swiper', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script> -->
 </body>
 </html>
