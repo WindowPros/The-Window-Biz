@@ -23,7 +23,6 @@ body {
   background-color: var(--white);
   line-height: 1.6;
 }
-
 /* NAVIGATION */
 nav {
   background: var(--white);
@@ -75,7 +74,10 @@ nav {
   padding: 1em .5em;
   width: 150px;
   top: 90%;
-  left: -17%;
+  left: -10px;
+}
+.services-mobile {
+  display: none;
 }
 
 .ourServices li {
@@ -106,6 +108,12 @@ a {
 }
 
 .nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.li-mobile {
   color: var(--text);
   text-decoration: none;
   font-weight: 500;
@@ -195,6 +203,9 @@ section {
 .container {
   max-width: 1400px;
   margin: 0 auto;
+}
+.swiper-mobile-only {
+  display: none !important;
 }
 
 .section-title {
@@ -612,7 +623,7 @@ footer {
     right: 0;
     background: var(--white);
     flex-direction: column;
-    padding: 1rem 0;
+    padding: .5rem 0;
     box-shadow: var(--shadow-lg);
     gap: 0;
     max-height: 0;
@@ -633,7 +644,7 @@ footer {
 
   .nav-links a {
     display: block;
-    padding: 1rem 2rem;
+    padding: .5rem .5rem;
     border-bottom: 1px solid var(--bg-light);
   }
 
@@ -643,6 +654,24 @@ footer {
 
   .mobile-menu-toggle {
     display: block;
+  }
+  .services-mobile {
+    display: block;
+    border-bottom: 1px solid var(--bg-light);
+  }
+  .a-mobile {
+    margin-left: 2rem;
+    list-style: none;
+  }
+  .li-mobile {
+    display: block;
+    padding: .5rem .5rem;
+  }
+  .a-mobile a {
+    border-bottom: none;
+  }
+  .nav-links > li:last-child a {
+    border-bottom: none;
   }
 
   /* Hero Section */
@@ -677,6 +706,46 @@ footer {
 
   .phone-number {
     font-size: 1.5rem;
+  }
+
+  .swiper-mobile-only {
+    display: block !important;
+    width: 100%;
+    padding: 0 15px 40px;
+  }
+  .swiper-slide {
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 0 5px;
+  }
+  .swiper {
+    padding-bottom: 40px !important;
+  }
+  #gallery .container {
+    display: none;
+  }
+
+  #gallery {
+    padding: 40px 10px;
+  }
+
+  /* Swiper slide images */
+  .swiper {
+    width: 100%;
+    padding-bottom: 40px; /* room for pagination dots */
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 8px; /* match your existing gallery-item style if any */
+    display: block;
+  }
+
+  /* Pagination dot color — change to match your brand */
+  .swiper-pagination-bullet-active {
+    background: #2563eb;
   }
 
   /* Footer */
