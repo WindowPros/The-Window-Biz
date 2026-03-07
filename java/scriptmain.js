@@ -41,14 +41,18 @@ if (form && message) {
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
+let navActive = false;
+
 if (mobileMenuToggle && navLinks) {
   mobileMenuToggle.addEventListener('click', function() {
     navLinks.classList.toggle('active');
     
     // Change hamburger icon to X when open
     if (navLinks.classList.contains('active')) {
+      navActive = true;
       mobileMenuToggle.textContent = '✕';
     } else {
+      navActive = false;
       mobileMenuToggle.textContent = '☰';
     }
   });
@@ -59,6 +63,16 @@ if (mobileMenuToggle && navLinks) {
     link.addEventListener('click', function() {
       navLinks.classList.remove('active');
       mobileMenuToggle.textContent = '☰';
+      navActive = false;
     });
   });
 }
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest('nav') && navActive === true)
+  {
+    navLinks.classList.remove('active');
+    mobileMenuToggle.textContent = '☰';
+    navActive = false;
+  }
+})
