@@ -46,6 +46,7 @@ nav {
   width: fit-content;
   color: black;
   align-items: center;
+  cursor: pointer;
 }
 
 #servicesText {
@@ -333,9 +334,11 @@ section {
 
 .features-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
   margin-top: 2rem;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .feature-box {
@@ -588,6 +591,10 @@ footer {
   .services-grid {
     grid-template-columns: 1fr 1fr;
   }
+  .features-grid {
+    gap: 2rem;
+    width: 100%;
+}
 }
 
 /* RESPONSIVE DESIGN */

@@ -23,50 +23,56 @@ let boxesChecked = {
 const jobInnerHtml = {
     window: () => `
         <div class="form-section">
-            <div class="form-group">
-            <label for="total_windows">Total Windows (~$5 per window)</label>
-            <input type="number" id="total_windows" inputmode="numeric" step="1" placeholder="e.g. 10" value="${pricesInput.window || ""}">
-            </div>
+        <div class="form-group">
+        <label for="total_windows">Total Windows - $7 per window</label>
+        <input type="number" id="total_windows" inputmode="numeric" step="1" placeholder="e.g. 10" value="${pricesInput.window || ""}">
+        </div>
 
-            <div class="form-group">
-            <label for="total_hazard_windows">Total Hazard Windows (paint, cement, roof access, etc.) (~$7 per window)</label>
-            <input type="number" id="total_hazard_windows" inputmode="numeric" step="1" placeholder="e.g. 5" value="${pricesInput.hazardWindows || ""}">
-            </div>
+        <div class="form-group">
+        <label for="total_hazard_windows">Total Hazard Windows (paint, cement, roof access, etc.) - $10 per window</label>
+        <input type="number" id="total_hazard_windows" inputmode="numeric" step="1" placeholder="e.g. 5" value="${pricesInput.hazardWindows || ""}">
+        </div>
         </div>`,
     gutter: () => `
         <div class="form-section">
-            <div class="form-group">
-            <label for="total_gutters">Total sqrft of Gutters (~$1 per sqrft of gutter)</label>
-            <div class="input-wrapper">
-                <span class="input-prefix"></span>
-                <input type="number" id="total_gutters" inputmode="numeric" step="1" placeholder="e.g. 30" value="${pricesInput.gutter || ""}">
-            </div>
-            </div>
+        <div class="form-group">
+        <label for="total_gutters">Total sqrft of Gutters - $1 per sqrft of gutter</label>
+        <div class="input-wrapper">
+        <span class="input-prefix"></span>
+        <input type="number" id="total_gutters" inputmode="numeric" step="1" placeholder="e.g. 30" value="${pricesInput.gutter || ""}">
+        </div>
+        </div>
         </div>`,
     pressure: () => `
         <div class="form-section">
-            <div class="form-group">
-            <label for="total_pressure">Total sqrft to be Pressure Washed (~$0.50 per sqrft)</label>
-            <div class="input-wrapper">
-                <span class="input-prefix"></span>
-                <input type="number" id="total_pressure" inputmode="numeric" step="1" placeholder="e.g. 20" value="${pricesInput.pressure || ""}">
-            </div>
-            </div>
+        <div class="form-group">
+        <label for="total_pressure">Total sqrft to be Pressure Washed - $0.50 per sqrft</label>
+        <div class="input-wrapper">
+        <span class="input-prefix"></span>
+        <input type="number" id="total_pressure" inputmode="numeric" step="1" placeholder="e.g. 20" value="${pricesInput.pressure || ""}">
+        </div>
+        </div>
         </div>`, 
     screen: () => `
         <div class="form-section">
-            <div class="form-group">
-            <label for="total_screens">Total Number of Screens (~$3 per screen)</label>
-            <div class="input-wrapper">
-            <span class="input-prefix"></span>
-            <input type="number" id="total_screens" inputmode="numeric" step="1" placeholder="e.g. 10" value="${pricesInput.screen || ""}">
-            </div>
-            </div>
-            </div>`
-        }
+        <div class="form-group">
+        <label for="total_screens">Total Number of Screens - $3 per screen</label>
+        <div class="input-wrapper">
+        <span class="input-prefix"></span>
+        <input type="number" id="total_screens" inputmode="numeric" step="1" placeholder="e.g. 10" value="${pricesInput.screen || ""}">
+        </div>
+        </div>
+        </div>`
+}
         
 const results = document.getElementById("results");
 const calcForm = document.querySelector("#calculator-form");
+
+function setCalculatorFormEmptyState(isEmpty) {
+    calcForm.classList.toggle("is-empty", isEmpty);
+}
+
+setCalculatorFormEmptyState(true);
 checkboxes.addEventListener("change", () => {
     scrapeNumbers();
     document.querySelectorAll('#jobs input[type="checkbox"]').forEach(box => {
@@ -76,8 +82,10 @@ checkboxes.addEventListener("change", () => {
         <p>Fill out the form and click "Calculate Quote" to see your estimated pricing breakdown.</p>
         </div>`
     if (boxesChecked.window === false && boxesChecked.gutter === false && boxesChecked.pressure === false && boxesChecked.screen === false) {
+        setCalculatorFormEmptyState(true);
         calcForm.innerHTML = `<p>Select a job from the section above to start your estimate</p>`;
     } else {
+        setCalculatorFormEmptyState(false);
         calcForm.innerHTML = `<h2 class="form-section-title">Job Details</h2>`;
         if (boxesChecked.window === true) {
             calcForm.innerHTML += jobInnerHtml.window();
@@ -106,8 +114,8 @@ function scrapeNumbers() {
 // Calculate the bid
 function calculateBid() {
     // Get pricing inputs
-    const standardPrice = 5;
-    const hazardPrice = 7;
+    const standardPrice = 7;
+    const hazardPrice = 10;
     const screenPrice = 3;
     const pressurePrice = .50;
     const gutterPrice = 1;
