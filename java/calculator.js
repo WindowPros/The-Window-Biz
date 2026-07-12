@@ -56,7 +56,7 @@ const jobInnerHtml = {
     screen: () => `
         <div class="form-section">
         <div class="form-group">
-        <label for="total_screens">Total Number of Screens - $3 per screen</label>
+        <label for="total_screens">Total Number of Screens - $20 per screen</label>
         <div class="input-wrapper">
         <span class="input-prefix"></span>
         <input type="number" id="total_screens" inputmode="numeric" step="1" placeholder="e.g. 10" value="${pricesInput.screen || ""}">
@@ -116,7 +116,7 @@ function calculateBid() {
     // Get pricing inputs
     const standardPrice = 7;
     const hazardPrice = 10;
-    const screenPrice = 3;
+    const screenPrice = 20;
     const pressurePrice = .50;
     const gutterPrice = 1;
 
