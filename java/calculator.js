@@ -6,10 +6,11 @@ carrot.addEventListener("click", () => {
 })
 
 let pricesInput = {
-    window: null,
-    hazardWindows: null,
-    gutter: null,
-    pressure: null, 
+    windowHomeSqft: null,
+    gutterHomeSqft: null,
+    pressureHomeSqft: null,
+    pressureDrivewaySqft: null,
+    pressureStories: null,
     screen: null
 }
 
@@ -20,37 +21,62 @@ let boxesChecked = {
     screen: false
 }
 
+// --- Pricing rates ---
+// TODO: these are placeholders/carried over from before. Confirm real values,
+// especially the pressure washing story/driveway/roof rates which are brand new.
+const rates = {
+    window: 0.13,          // $ per sqft, used for Inside & Outside price
+    gutter: 0.06,           // $ per sqft of home
+    screen: 20,              // $ per screen
+    pressure: {
+        oneStory: 0.50,     // TODO: confirm - carried over from old flat pressure rate
+        twoStory: 0.60,     // TODO: placeholder, set real rate
+        threeStory: 0.70,   // TODO: placeholder, set real rate
+        driveway: 0.20,     // TODO: placeholder, set real rate
+        roof: 0.15          // TODO: placeholder, set real rate
+    }
+}
+
 const jobInnerHtml = {
     window: () => `
         <div class="form-section">
         <div class="form-group">
-        <label for="total_windows">Total Windows - $7 per window</label>
-        <input type="number" id="total_windows" inputmode="numeric" step="1" placeholder="e.g. 10" value="${pricesInput.window || ""}">
+        <label for="window_home_sqft">Home Square Footage</label>
+        <div class="input-wrapper">
+        <span class="input-prefix"></span>
+        <input type="number" id="window_home_sqft" inputmode="numeric" step="1" placeholder="e.g. 2000" value="${pricesInput.windowHomeSqft || ""}">
         </div>
-
-        <div class="form-group">
-        <label for="total_hazard_windows">Total Hazard Windows (paint, cement, roof access, etc.) - $10 per window</label>
-        <input type="number" id="total_hazard_windows" inputmode="numeric" step="1" placeholder="e.g. 5" value="${pricesInput.hazardWindows || ""}">
         </div>
         </div>`,
     gutter: () => `
         <div class="form-section">
         <div class="form-group">
-        <label for="total_gutters">Total sqrft of Gutters - $1 per sqrft of gutter</label>
+        <label for="gutter_home_sqft">Home Square Footage</label>
         <div class="input-wrapper">
         <span class="input-prefix"></span>
-        <input type="number" id="total_gutters" inputmode="numeric" step="1" placeholder="e.g. 30" value="${pricesInput.gutter || ""}">
+        <input type="number" id="gutter_home_sqft" inputmode="numeric" step="1" placeholder="e.g. 2000" value="${pricesInput.gutterHomeSqft || ""}">
         </div>
         </div>
         </div>`,
     pressure: () => `
         <div class="form-section">
         <div class="form-group">
-        <label for="total_pressure">Total sqrft to be Pressure Washed - $0.50 per sqrft</label>
+        <label for="pressure_home_sqft">Home Square Footage</label>
         <div class="input-wrapper">
         <span class="input-prefix"></span>
-        <input type="number" id="total_pressure" inputmode="numeric" step="1" placeholder="e.g. 20" value="${pricesInput.pressure || ""}">
+        <input type="number" id="pressure_home_sqft" inputmode="numeric" step="1" placeholder="e.g. 2000" value="${pricesInput.pressureHomeSqft || ""}">
         </div>
+        </div>
+        <div class="form-group">
+        <label for="pressure_driveway_sqft">Driveway Square Footage</label>
+        <div class="input-wrapper">
+        <span class="input-prefix"></span>
+        <input type="number" id="pressure_driveway_sqft" inputmode="numeric" step="1" placeholder="e.g. 400 (enter 0 if none)" value="${pricesInput.pressureDrivewaySqft || ""}">
+        </div>
+        </div>
+        <div class="form-group">
+        <label for="pressure_stories">Number of Stories</label>
+        <input type="number" id="pressure_stories" inputmode="numeric" step="1" min="1" max="3" placeholder="e.g. 2" value="${pricesInput.pressureStories || ""}">
         </div>
         </div>`, 
     screen: () => `
@@ -104,60 +130,88 @@ checkboxes.addEventListener("change", () => {
 })
 
 function scrapeNumbers() {
-    pricesInput.window = parseInt(document.getElementById("total_windows")?.value) || null;
-    pricesInput.hazardWindows = parseInt(document.getElementById("total_hazard_windows")?.value) || null;
+    pricesInput.windowHomeSqft = parseInt(document.getElementById("window_home_sqft")?.value) || null;
+    pricesInput.gutterHomeSqft = parseInt(document.getElementById("gutter_home_sqft")?.value) || null;
+    pricesInput.pressureHomeSqft = parseInt(document.getElementById("pressure_home_sqft")?.value) || null;
+    pricesInput.pressureDrivewaySqft = parseInt(document.getElementById("pressure_driveway_sqft")?.value) || null;
+    pricesInput.pressureStories = parseInt(document.getElementById("pressure_stories")?.value) || null;
     pricesInput.screen = parseInt(document.getElementById("total_screens")?.value) || null;
-    pricesInput.pressure = parseInt(document.getElementById("total_pressure")?.value) || null;
-    pricesInput.gutter = parseInt(document.getElementById("total_gutters")?.value) || null;
+}
+
+// Returns the correct per-sqft pressure washing rate for the given number of stories.
+// Falls back to the 1-story rate if stories is missing, 0, or somehow negative.
+function getPressureStoryRate(stories) {
+    if (stories >= 3) return rates.pressure.threeStory;
+    if (stories === 2) return rates.pressure.twoStory;
+    return rates.pressure.oneStory;
 }
 
 // Calculate the bid
 function calculateBid() {
-    // Get pricing inputs
-    const standardPrice = 7;
-    const hazardPrice = 10;
-    const screenPrice = 20;
-    const pressurePrice = .50;
-    const gutterPrice = 1;
-
-    // Get job inputs
     scrapeNumbers();
 
-    // Calculations
-    const oneSidePrice = pricesInput.window * standardPrice;
-    const totalInOut = oneSidePrice * 2;
-    const hazardSurcharge = pricesInput.hazardWindows * hazardPrice;
-    const screenCharge = pricesInput.screen * screenPrice;
+    // ----- Window cleaning -----
+    // Inside & Outside = home sqft * rate
+    // Outside Only = Inside & Outside / 0.8 / 2
+    const windowInOutCharge = (pricesInput.windowHomeSqft || 0) * rates.window;
+    const windowOutsideOnlyCharge = windowInOutCharge / 0.8 / 2;
 
-    const gutterCharge = pricesInput.gutter * gutterPrice;
-    const pressureCharge = pricesInput.pressure * pressurePrice;
+    // ----- Gutter cleaning -----
+    const gutterCharge = (pricesInput.gutterHomeSqft || 0) * rates.gutter;
 
-    // New totals
-    const totalWindowPrice = totalInOut + hazardSurcharge; // Total In/Out + Hazard
+    // ----- Pressure washing -----
+    // Guard against missing/0 stories so we never divide by zero.
+    const stories = pricesInput.pressureStories && pricesInput.pressureStories > 0
+        ? pricesInput.pressureStories
+        : 1;
+    const storyRate = getPressureStoryRate(stories);
 
-    // Round values to whole numbers
-    const totalInOutRounded = Math.round(totalInOut);
-    const oneSideRounded = Math.round(oneSidePrice);
-    const hazardRounded = Math.round(hazardSurcharge);
+    const houseWashCharge = (pricesInput.pressureHomeSqft || 0) / stories * storyRate;
+    const drivewayWashCharge = (pricesInput.pressureDrivewaySqft || 0) * rates.pressure.driveway;
+    const roofWashCharge = (pricesInput.pressureHomeSqft || 0) / stories * rates.pressure.roof;
+    const pressureTotalCharge = houseWashCharge + drivewayWashCharge + roofWashCharge;
+
+    // ----- Screens -----
+    const screenCharge = (pricesInput.screen || 0) * rates.screen;
+
+    // Round values to whole numbers for display
+    const windowInOutRounded = Math.round(windowInOutCharge);
+    const windowOutsideOnlyRounded = Math.round(windowOutsideOnlyCharge);
+    const gutterRounded = Math.round(gutterCharge);
+    const houseWashRounded = Math.round(houseWashCharge);
+    const drivewayWashRounded = Math.round(drivewayWashCharge);
+    const roofWashRounded = Math.round(roofWashCharge);
+    const pressureTotalRounded = Math.round(pressureTotalCharge);
     const screenRounded = Math.round(screenCharge);
-    const totalWindowRounded = Math.round(totalWindowPrice);
-    results.innerHTML = "";
 
+    results.innerHTML = "";
     results.innerHTML += `<h2>Price Breakdown</h2>`
+
     if (boxesChecked.window === true) {
-        results.innerHTML += `<p><strong>Total In/Out Price:</strong> <span>$${totalInOutRounded}</span></p>
-        <p><strong>One-Side Price:</strong> <span>$${oneSideRounded}</span></p>
-        <p><strong>Hazard Surcharge:</strong> <span>$${hazardRounded}</span></p>
-        <p><strong>Total Window Price:</strong> <span>$${totalWindowRounded}</span></p>`;
+        results.innerHTML += `<p><strong>Home Sqft:</strong> <span>${pricesInput.windowHomeSqft || 0}</span></p>
+        <p><strong>Inside & Outside Price:</strong> <span>$${windowInOutRounded}</span></p>
+        <p><strong>Outside Only Price:</strong> <span>$${windowOutsideOnlyRounded}</span></p>`;
     }
     if (boxesChecked.gutter === true) {
-        results.innerHTML += `<p><strong>Gutter Cleaning Charge:</strong> <span>$${gutterCharge}</span></p>`;
+        results.innerHTML += `<p><strong>Home Sqft:</strong> <span>${pricesInput.gutterHomeSqft || 0}</span></p>
+        <p><strong>Gutter Cleaning Charge:</strong> <span>$${gutterRounded}</span></p>`;
     }
     if (boxesChecked.pressure === true) {
-        results.innerHTML += `<p><strong>Pressure Washing Charge:</strong> <span>$${pressureCharge}</span></p>`;
+        results.innerHTML += `<p><strong>Home Sqft:</strong> <span>${pricesInput.pressureHomeSqft || 0}</span></p>
+        <p><strong>Driveway Sqft:</strong> <span>${pricesInput.pressureDrivewaySqft || 0}</span></p>
+        <p><strong>Stories:</strong> <span>${pricesInput.pressureStories || 0}</span></p>
+        <p><strong>House Wash:</strong> <span>$${houseWashRounded}</span></p>
+        <p><strong>Driveway Wash:</strong> <span>$${drivewayWashRounded}</span></p>
+        <p><strong>Roof Wash:</strong> <span>$${roofWashRounded}</span></p>
+        <p><strong>Pressure Washing Total:</strong> <span>$${pressureTotalRounded}</span></p>`;
     }
     if (boxesChecked.screen === true) {
         results.innerHTML += `<p><strong>Screen Cleaning Charge:</strong> <span>$${screenRounded}</span></p>`;
     }
-    results.innerHTML += `<p><strong>Total Charges:</strong> <span>$${totalWindowRounded+gutterCharge+pressureCharge+screenRounded}</span></p>`;
+
+    // NOTE: Window's "Inside & Outside" price is what counts toward the grand
+    // total below. "Outside Only" is shown as an alternative option and is
+    // NOT added in. See the message below the code for why, and how to change it.
+    const grandTotal = windowInOutRounded + gutterRounded + pressureTotalRounded + screenRounded;
+    results.innerHTML += `<p><strong>Total Charges:</strong> <span>$${grandTotal}</span></p>`;
 }
