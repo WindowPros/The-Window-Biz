@@ -31,8 +31,8 @@ const rates = {
         twoStory: 0.30,     // TODO: placeholder, set real rate
         threeStory: 0.40,   // TODO: placeholder, set real rate
         driveway: 0.30,     // TODO: placeholder, set real rate
-        roofOneStory: 0.6, // TODO: placeholder, set real rate
-        roofTwoStory: 1  // TODO: placeholder, set real rate (also used for 3-story homes, see note below)
+        roofOneStory: 0.4, // TODO: placeholder, set real rate
+        roofTwoStory: 0.75  // TODO: placeholder, set real rate (also used for 3-story homes, see note below)
     }
 }
 
@@ -199,9 +199,16 @@ function calculateBid() {
         results.innerHTML += `<p><strong>Screen Cleaning Charge:</strong> <span>$${screenRounded}</span></p>`;
     }
 
-    // NOTE: Window's "Inside & Outside" price is what counts toward the grand
-    // total below. "Outside Only" is shown as an alternative option and is
-    // NOT added in.
-    const grandTotal = windowInOutRounded + gutterRounded + pressureTotalRounded + screenRounded;
+    // NOTE: Window's "Windows In/Out" price is what counts toward the grand
+    // total below. "Windows Outside Only" is shown as an alternative option and
+    // is NOT added in.
+    // Only sum charges for jobs that are actually checked - home sqft is shared,
+    // so windowInOutRounded/gutterRounded/etc. get computed even for unchecked
+    // jobs and must not leak into the total.
+    let grandTotal = 0;
+    if (boxesChecked.window === true) grandTotal += windowInOutRounded;
+    if (boxesChecked.gutter === true) grandTotal += gutterRounded;
+    if (boxesChecked.pressure === true) grandTotal += pressureTotalRounded;
+    if (boxesChecked.screen === true) grandTotal += screenRounded;
     results.innerHTML += `<p><strong>Total Charges:</strong> <span>$${grandTotal}</span></p>`;
 }
