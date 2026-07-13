@@ -183,8 +183,8 @@ function calculateBid() {
     results.innerHTML += `<h2>Price Breakdown</h2>`
 
     if (boxesChecked.window === true) {
-        results.innerHTML += `<p><strong>Inside & Outside Price:</strong> <span>$${windowInOutRounded}</span></p>
-        <p><strong>Outside Only Price:</strong> <span>$${windowOutsideOnlyRounded}</span></p>`;
+        results.innerHTML += `<p><strong>Windows In/Out:</strong> <span>$${windowInOutRounded}</span></p>
+        <p><strong>Windows Outside Only:</strong> <span>$${windowOutsideOnlyRounded}</span></p>`;
     }
     if (boxesChecked.gutter === true) {
         results.innerHTML += `<p><strong>Gutter Cleaning Charge:</strong> <span>$${gutterRounded}</span></p>`;
