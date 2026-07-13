@@ -29,10 +29,10 @@ const rates = {
     gutter: 0.06,           // $ per sqft of home
     screen: 20,              // $ per screen
     pressure: {
-        oneStory: 0.50,     // TODO: confirm - carried over from old flat pressure rate
-        twoStory: 0.60,     // TODO: placeholder, set real rate
-        threeStory: 0.70,   // TODO: placeholder, set real rate
-        driveway: 0.20,     // TODO: placeholder, set real rate
+        oneStory: 0.20,     // TODO: confirm - carried over from old flat pressure rate
+        twoStory: 0.30,     // TODO: placeholder, set real rate
+        threeStory: 0.40,   // TODO: placeholder, set real rate
+        driveway: 0.30,     // TODO: placeholder, set real rate
         roof: 0.15          // TODO: placeholder, set real rate
     }
 }
