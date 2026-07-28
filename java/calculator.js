@@ -23,7 +23,7 @@ let boxesChecked = {
 // TODO: these are placeholders/carried over from before. Confirm real values,
 // especially the pressure washing story/driveway/roof rates which are brand new.
 const rates = {
-    window: 0.13,          // $ per sqft, used for Inside & Outside price
+    window: 0.12,          // $ per sqft, used for Inside & Outside price
     gutter: 0.06,           // $ per sqft of home
     screen: 20,              // $ per screen
     pressure: {
