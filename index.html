@@ -51,7 +51,13 @@
     <div class="hero-content">
       <h1>The Window Biz</h1>
       <p>America's Trusted, Streak-Free Professionals</p>
-      <a href="#" id="hero-book-btn" class="cta-button">Book an Appointment</a>
+      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ33DzATRT_A7UtDpbsw4LvFpG6u6WVbNRyxKY9asSB4URdb295LI9PCOAwAYcQSoK1qV1me2PUZ?gv=true" 
+   id="hero-book-btn" 
+   class="cta-button" 
+   target="_blank" 
+   rel="noopener noreferrer">
+   Book a Service
+</a>
     </div>
   </header>
 
@@ -305,22 +311,6 @@
         clickable: true,
       },
     });
-  </script>
-  <!-- Google Calendar Pop-up Engine -->
-<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var bookBtn = document.getElementById('hero-book-btn');
-    if (bookBtn) {
-      bookBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        calendar.schedulingButton.load({
-          url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ33DzATRT_A7UtDpbsw4LvFpG6u6WVbNRyxKY9asSB4URdb295LI9PCOAwAYcQSoK1qV1me2PUZ?gv=true'
-        });
-      });
-    }
-  });
-</script> 
+  </script> 
 </body>
 </html>
