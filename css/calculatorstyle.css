@@ -181,6 +181,13 @@ label {
   margin-top: 1rem;
 }
 
+.quote-feedback {
+  margin: 0.75rem 0 0;
+  color: var(--primary);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 #calculator-form p {
   text-align: center;
   color: var(--text-light);

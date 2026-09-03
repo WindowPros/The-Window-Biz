@@ -1,9 +1,22 @@
 const carrot = document.querySelector("#carrot");
 const checkboxes = document.querySelector("#jobs");
+const jobDropdown = document.querySelector(".jobDropdown");
+
+function closeJobDropdown() {
+    checkboxes.classList.remove("active");
+    carrot.classList.remove("active");
+}
+
 carrot.addEventListener("click", () => {
     checkboxes.classList.toggle("active");
     carrot.classList.toggle("active");
-})
+});
+
+document.addEventListener("click", (event) => {
+    if (!jobDropdown.contains(event.target)) {
+        closeJobDropdown();
+    }
+});
 
 let pricesInput = {
     homeSqft: null,
@@ -114,7 +127,8 @@ checkboxes.addEventListener("change", () => {
             calcForm.innerHTML += jobInnerHtml.screen();
         }
 
-        calcForm.innerHTML += `<button type="submit" class="calculate-btn">Calculate Quote</button>`;
+        calcForm.innerHTML += `<button type="submit" class="calculate-btn">Calculate Quote</button>
+            <p class="quote-feedback" role="status" aria-live="polite"></p>`;
     }
 })
 
@@ -211,4 +225,7 @@ function calculateBid() {
     if (boxesChecked.pressure === true) grandTotal += pressureTotalRounded;
     if (boxesChecked.screen === true) grandTotal += screenRounded;
     results.innerHTML += `<p><strong>Total Charges:</strong> <span>$${grandTotal}</span></p>`;
+
+    const quoteFeedback = calcForm.querySelector(".quote-feedback");
+    if (quoteFeedback) quoteFeedback.textContent = "Quote calculated!";
 }
