@@ -38,7 +38,7 @@ let boxesChecked = {
 const rates = {
     window: 0.12,          // $ per sqft, used for Inside & Outside price
     gutter: 0.06,           // $ per sqft of home
-    screen: 20,              // $ per screen
+    screen: 30,              // $ per screen
     pressure: {
         oneStory: 0.20,     // TODO: confirm - carried over from old flat pressure rate
         twoStory: 0.30,     // TODO: placeholder, set real rate
@@ -197,20 +197,20 @@ function calculateBid() {
     results.innerHTML += `<h2>Price Breakdown</h2>`
 
     if (boxesChecked.window === true) {
-        results.innerHTML += `<p><strong>Windows In/Out:</strong> <span>$${windowInOutRounded}</span></p>
-        <p><strong>Windows Outside Only:</strong> <span>$${windowOutsideOnlyRounded}</span></p>`;
+        results.innerHTML += `<p><strong>Windows Outside Only: </strong> <span>$${windowOutsideOnlyRounded}</span></p>
+        <p><strong>Windows In & Out: </strong> <span>$${windowInOutRounded}</span></p>`;
     }
     if (boxesChecked.gutter === true) {
-        results.innerHTML += `<p><strong>Gutter Cleaning Charge:</strong> <span>$${gutterRounded}</span></p>`;
+        results.innerHTML += `<p><strong>Gutter Cleaning Charge: </strong> <span>$${gutterRounded}</span></p>`;
     }
     if (boxesChecked.pressure === true) {
-        results.innerHTML += `<p><strong>House Wash:</strong> <span>$${houseWashRounded}</span></p>
-        <p><strong>Driveway Wash:</strong> <span>$${drivewayWashRounded}</span></p>
-        <p><strong>Roof Wash:</strong> <span>$${roofWashRounded}</span></p>
-        <p><strong>Pressure Washing Total:</strong> <span>$${pressureTotalRounded}</span></p>`;
+        results.innerHTML += `<p><strong>Driveway Wash: </strong> <span>$${drivewayWashRounded}</span></p>
+        <p><strong>House Wash: </strong> <span>$${houseWashRounded}</span></p>
+        <p><strong>Roof Wash: </strong> <span>$${roofWashRounded}</span></p>
+        <p><strong>Pressure Washing Total: </strong> <span>$${pressureTotalRounded}</span></p>`;
     }
     if (boxesChecked.screen === true) {
-        results.innerHTML += `<p><strong>Screen Cleaning Charge:</strong> <span>$${screenRounded}</span></p>`;
+        results.innerHTML += `<p><strong>Screen Cleaning Charge: </strong> <span>$${screenRounded}</span></p>`;
     }
 
     // NOTE: Window's "Windows In/Out" price is what counts toward the grand
