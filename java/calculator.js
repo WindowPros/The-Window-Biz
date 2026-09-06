@@ -82,7 +82,7 @@ const jobInnerHtml = {
     screen: () => `
         <div class="form-section">
         <div class="form-group">
-        <label for="total_screens">Total Number of Screens - $20 per screen</label>
+        <label for="total_screens">Total Number of Screens - $30 per screen</label>
         <div class="input-wrapper">
         <span class="input-prefix"></span>
         <input type="number" id="total_screens" inputmode="numeric" step="1" placeholder="e.g. 10" value="${pricesInput.screen || ""}">
